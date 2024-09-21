@@ -1,8 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "../button";
+import confetti from "canvas-confetti";
 
 const Hero = () => {
+  const shootConfetti = () => {
+    confetti({
+      particleCount: 100,
+      spread: 500,
+      origin: { y: 0.6 },
+    });
+  };
+
+  useEffect(() => {
+    // Set up the interval to repeat the function every 2500 milliseconds
+    const intervalId = setInterval(() => {
+      shootConfetti();
+    }, 2500);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
+
   return (
     <div className="bg-gray-950 bg-hero-pattern w-full  h-[1700px] bg-no-repeat  bg-cover bg-top">
       <div className="relative max-w-[1440px] mx-auto w-full  pt-[100px]">
@@ -37,12 +56,24 @@ const Hero = () => {
             className="w-[1000px] relative -translate-y-[170px] h-fit"
             alt=""
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0, rotate: 20 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0, rotate: 20 }}
+            transition={{
+              duration: 0.6,
+            }}
             src="/bg/smiley.svg"
             className="absolute top-[8%] right-1/4 z-[4]  h-fit "
             alt=""
           />
-          <img
+          <motion.img
+            initial={{ opacity: 0, scale: 0, rotate: 40 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0, rotate: 20 }}
+            transition={{
+              duration: 1,
+            }}
             src="/bg/music.svg"
             className=" absolute top-[20%] right-1/2 z-[4]  h-fit "
             alt=""
