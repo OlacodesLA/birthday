@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .desig {
+    font-family: "Whisper", cursive;
+  }
+}

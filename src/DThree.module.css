@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  /* background-color: lightgrey; */
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  transform-style: preserve-3d;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+.textContainer {
+  position: relative;
+  cursor: pointer;
+  font-family: "Yellowtail", cursive;
+  transition: transform 0.4s;
+  transform-style: preserve-3d;
+}
+
+.textContainer p {
+  font-size: 8vw;
+  font-family: "Yellowtail", cursive;
+  font-weight: 700;
+  margin: 0px;
+  transition: all 0.4s;
+  color: #fcffef;
+  /* text-stroke: 0.1px #fcffef;
+  -moz-text-stroke: 0.1px #fcffef;
+  -webkit-text-stroke: 0.1px #fcffef; */
+  /* text-shadow: -3px -3px 0 #fcffef, 3px -3px 0 #fcffef, -3px 3px 0 #fcffef,
+    3px 3px 0 #fcffef; */
+  line-height: 8vw;
+}
+
+.textContainer .secondary {
+  transform: rotateX(-90deg) translateY(3.5vw);
+  transform-origin: bottom center;
+  position: absolute;
+  top: 0;
+  color: #efbf04;
+  opacity: 0;
+}
+
+.textContainer:hover {
+  transform: rotateX(90deg);
+}
+
+.textContainer:hover .secondary {
+  opacity: 1;
+}
+
+.textContainer:hover .primary {
+  transform: translateY(-100%);
+  opacity: 0;
+}
