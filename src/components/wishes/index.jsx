@@ -123,7 +123,7 @@ const wishes = [
   },
   {
     name: "Precious",
-    message: "Visionary leader,Innovative and Enigma.",
+    message: "Visionary and Innovative leader",
   },
   {
     name: "Bassist",
