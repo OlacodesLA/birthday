@@ -110,9 +110,18 @@ export default function Birthday() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const controls = useAnimation();
 
+  const startAnimation = async () => {
+    await controls.start("hidden");
+    await controls.start("visible");
+  };
+
   if (isInView) {
-    controls.start("visible");
+    startAnimation();
   }
+
+  const restart = () => {
+    startAnimation();
+  };
 
   const containerVariants = {
     hidden: {},
@@ -139,6 +148,9 @@ export default function Birthday() {
 
   return (
     <div className="min-h-screen bg-buzz-describe h-[1900px] bg-no-repeat bg-[#2D1D44] bg-cover bg-top w-full">
+      <div className="orbitron text-[#FF4E78] text-7xl pt-40 pl-6 font-bold">
+        AY in 50 words
+      </div>
       <div className="relative max-w-7xl mx-auto py-40 mb-30">
         <motion.div
           ref={ref}
@@ -156,6 +168,14 @@ export default function Birthday() {
             />
           ))}
         </motion.div>
+        <div className="w-full flex  justify-center items-center">
+          <button
+            className="cursor-pointer w-fit  py-4 bg-gray-950 text-white px-4 rounded-md"
+            onClick={() => restart()}
+          >
+            Restart Wishes
+          </button>
+        </div>
         <video
           controls
           className="max-w-[1280px] w-full h-fit  rounded-lg  mb-40"

@@ -34,7 +34,8 @@ const Hero = () => {
               duration: 1,
               type: "spring",
               stiffness: 200,
-              damping: 10,
+              delay: 0.5,
+              damping: 7,
             }}
             src="/happy.svg"
             className="w-[800px] relative z-[1] h-fit justify-items-start flex"
@@ -46,10 +47,10 @@ const Hero = () => {
             exit={{ opacity: 0, scale: 0, y: -170 }}
             transition={{
               duration: 1.3,
-              delay: 0.3,
+              delay: 0.9,
               type: "spring",
               stiffness: 200,
-              damping: 10,
+              damping: 7,
             }}
             src="/birthday.svg"
             style={{ transform: "translateY(-170px)" }}
@@ -62,6 +63,7 @@ const Hero = () => {
             exit={{ opacity: 0, scale: 0, rotate: 20 }}
             transition={{
               duration: 0.6,
+              delay: 0.8,
             }}
             src="/bg/smiley.svg"
             className="absolute top-[8%] right-1/4 z-[4]  h-fit "
@@ -73,6 +75,7 @@ const Hero = () => {
             exit={{ opacity: 0, scale: 0, rotate: 20 }}
             transition={{
               duration: 1,
+              delay: 0.9,
             }}
             src="/bg/music.svg"
             className=" absolute top-[20%] right-1/2 z-[4]  h-fit "
@@ -87,7 +90,16 @@ const Hero = () => {
           </div>
 
           <div className="relative flex justify-center w-full pt-16">
-            <div className="relative w-[700px] flex justify-center -translate-x-5">
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0 }}
+              transition={{
+                duration: 1,
+                delay: 0.9,
+              }}
+              className="relative w-[700px] flex justify-center -translate-x-5"
+            >
               <img
                 src="/bg/tv-shadow.svg"
                 className="absolute translate-x-[50px] translate-y-[50px]  w-[900px] h-fit "
@@ -104,7 +116,7 @@ const Hero = () => {
                 alt=""
                 srcset=""
               />
-            </div>
+            </motion.div>
           </div>
         </div>
         <div className="flex justify-end items-end h-fit">
