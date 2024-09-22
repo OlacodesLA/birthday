@@ -9,6 +9,19 @@ const wishes = [
     message: "A compassionate leader with unwavering principles.",
   },
   {
+    name: "Williams",
+    message: "Phenomenal leader, brilliant coach, awesome person.",
+  },
+
+  {
+    name: "Olajide",
+    message: "An unstoppable force of creativity and leadership.",
+  },
+  {
+    name: "Rosemary",
+    message: "Strategic thinker, compassionate leader, dedicated to growth.",
+  },
+  {
     name: "Afolabi",
     message: "Happy birthday, A.Y! Your leadership inspires me.",
   },
@@ -23,19 +36,28 @@ const wishes = [
       "Happy birthday, AY! Extremely intelligent, vast, thoughtful, and exceptional.",
   },
   {
+    name: "Esther",
+    message: "AY is awesome, super fun, and always lightens the mood",
+  },
+  {
     name: "Timothy",
     message:
       "Happy Birthday, AY! Wishing you a fantastic day filled with joy & success!",
   },
   {
+    name: "Derrick",
+    message: "You’re an awesome boss, we appreciate and love you sir",
+  },
+  {
     name: "Oluwaseun",
     message: "A.Y's leadership inspires growth and forward thinking",
   },
-  {
-    name: "Williams",
-    message: "phenomenal leader, brilliant coach, awesome person",
-  },
+
   { name: "Vire", message: "Humble and Inspiring" },
+  {
+    name: "Kenny",
+    message: "Visionary leader, wise, detailed, and forward-thinking.",
+  },
   { name: "Yemi", message: "AY, thank you for inspiring us! Happy birthday!" },
   {
     name: "Godwin",
@@ -162,7 +184,7 @@ export default function Birthday() {
   return (
     <div className="min-h-screen bg-buzz-describe h-fit bg-no-repeat bg-[#2D1D44] bg-cover bg-left  w-full">
       <div className="flex items-center gap-x-4 orbitron text-[#FF4E78] text-7xl pt-40 pl-6 font-bold">
-        <h3>AY in 50 words</h3>
+        <h3>AY in 50 characters</h3>
         <div className="">
           <motion.button
             whileHover={{ scale: 1.15, zIndex: 50 }}
@@ -183,6 +205,7 @@ export default function Birthday() {
           </motion.button>
         </div>
       </div>
+
       <div className="relative max-w-screen h-full mx-auto py-20 mb-30">
         <motion.div
           ref={ref}
@@ -205,7 +228,7 @@ export default function Birthday() {
           controls
           className="max-w-[1280px] mx-auto w-full h-fit pt-40  rounded-lg  mb-40"
         >
-          <source src="/ay-birthday.MOV" type="video/mp4" />
+          <source src="/ay-birthday.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>

@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import Birthday from "./components/wishes";
 import useWindow from "./utils";
 import Glitch from "./components/glitch";
+import AudioPlayer from "./components/autoplay";
 
 function App() {
   const [reveal, setReveal] = useState(false);
@@ -32,23 +33,25 @@ function App() {
         <div className="w-full md:flex flex-col hidden">
           {reveal ? (
             <AnimatePresence mode="wait">
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0 }}
-                transition={{
-                  duration: 1,
-                  type: "spring",
-                  stiffness: 200,
-                  delay: 0.5,
-                  damping: 7,
-                }}
-                className=""
-              >
-                <Hero />
-                <Birthday />
-                <BuzzWords />
-              </motion.div>
+              <AudioPlayer>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{
+                    duration: 1,
+                    type: "spring",
+                    stiffness: 200,
+                    delay: 0.5,
+                    damping: 7,
+                  }}
+                  className=""
+                >
+                  <Hero />
+                  <Birthday />
+                  <BuzzWords />
+                </motion.div>
+              </AudioPlayer>
             </AnimatePresence>
           ) : (
             <Glitch />
