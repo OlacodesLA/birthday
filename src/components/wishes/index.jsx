@@ -133,7 +133,20 @@ export default function Birthday() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0 },
+    hidden: { opacity: 0, scale: 1 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        mass: 1,
+      },
+    },
+  };
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 1 },
     visible: {
       opacity: 1,
       scale: 1,
@@ -147,14 +160,33 @@ export default function Birthday() {
   };
 
   return (
-    <div className="min-h-screen bg-buzz-describe h-[1900px] bg-no-repeat bg-[#2D1D44] bg-cover bg-top w-full">
-      <div className="orbitron text-[#FF4E78] text-7xl pt-40 pl-6 font-bold">
-        AY in 50 words
+    <div className="min-h-screen bg-buzz-describe h-fit bg-no-repeat bg-[#2D1D44] bg-cover bg-left  w-full">
+      <div className="flex items-center gap-x-4 orbitron text-[#FF4E78] text-7xl pt-40 pl-6 font-bold">
+        <h3>AY in 50 words</h3>
+        <div className="">
+          <motion.button
+            whileHover={{ scale: 1.15, zIndex: 50 }}
+            whileTap={{ scale: 0.95, zIndex: 50 }}
+            variants={buttonVariants}
+            className="cursor-pointer w-fit  py-4 bg-[#CAFB12] text-white px-4 rounded-md"
+            onClick={() => restart()}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="#000000"
+              viewBox="0 0 256 256"
+            >
+              <path d="M240,56v48a8,8,0,0,1-8,8H184a8,8,0,0,1,0-16H211.4L184.81,71.64l-.25-.24a80,80,0,1,0-1.67,114.78,8,8,0,0,1,11,11.63A95.44,95.44,0,0,1,128,224h-1.32A96,96,0,1,1,195.75,60L224,85.8V56a8,8,0,1,1,16,0Z"></path>
+            </svg>
+          </motion.button>
+        </div>
       </div>
-      <div className="relative max-w-7xl mx-auto py-40 mb-30">
+      <div className="relative max-w-screen h-full mx-auto py-20 mb-30">
         <motion.div
           ref={ref}
-          className="relative h-[80vh]"
+          className="relative w-full flex justify-center gap-y-8 flex-wrap gap-x-7 h-full"
           variants={containerVariants}
           initial="hidden"
           animate={controls}
@@ -168,17 +200,10 @@ export default function Birthday() {
             />
           ))}
         </motion.div>
-        <div className="w-full flex  justify-center items-center">
-          <button
-            className="cursor-pointer w-fit  py-4 bg-gray-950 text-white px-4 rounded-md"
-            onClick={() => restart()}
-          >
-            Restart Wishes
-          </button>
-        </div>
+
         <video
           controls
-          className="max-w-[1280px] w-full h-fit  rounded-lg  mb-40"
+          className="max-w-[1280px] mx-auto w-full h-fit pt-40  rounded-lg  mb-40"
         >
           <source src="/ay-birthday.MOV" type="video/mp4" />
           Your browser does not support the video tag.
@@ -189,26 +214,27 @@ export default function Birthday() {
 }
 
 function DraggableWish({ wish, variants, index }) {
-  const randomX = Math.random() * 100; // -40% to 40% of container width
-  const randomY = Math.random() * 70; // 0% to 70% of container height
-  const randomRotate = Math.random() * 20 - 10; // -10deg to 10deg
+  //   const randomX = Math.random() * 100; // -40% to 40% of container width
+  //   const randomY = Math.random() * 70; // 0% to 70% of container height
+  //   const randomRotate = Math.random() * 20 - 10; // -10deg to 10deg
 
   return (
     <motion.div
       drag
       dragMomentum={false}
-      dragElastic={0.05}
-      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
-      className="absolute cursor-grab active:cursor-grabbing bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-lg w-64"
+      dragElastic={0.6}
+      dragConstraints={{ top: 4, left: 4, right: 4, bottom: 4 }}
+      className=" cursor-grab active:cursor-grabbing bg-white/10 backdrop-blur-sm p-4 rounded-lg shadow-lg w-72 h-44"
       variants={variants}
-      style={{
-        left: `${randomX}%`,
-        top: `${randomY}%`,
-        rotate: `${randomRotate}deg`,
-        zIndex: index,
-      }}
+      //   style={{
+      //     left: `${randomX}%`,
+      //     top: `${randomY}%`,
+      //     rotate: `${randomRotate}deg`,
+      //     zIndex: index,
+      //   }}
       whileHover={{ scale: 1.05, zIndex: 50 }}
-      whileTap={{ scale: 0.95, zIndex: 50 }}
+      //   whileTap={{ scale: 0.95, zIndex: 50 }}
+      //   animate={{ opacity: 1, scale: 1 }}
     >
       <h2 className="text-xl font-semibold text-white mb-2">{wish.name}</h2>
       <p className="text-gray-200">{wish.message}</p>
