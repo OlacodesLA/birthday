@@ -192,7 +192,7 @@ export default function Birthday() {
 
   return (
     <div className="min-h-screen bg-buzz-describe h-fit bg-no-repeat bg-[#2D1D44] bg-cover bg-left  w-full">
-      <div className="flex items-center gap-x-4 orbitron text-[#FF4E78] text-7xl pt-40 pl-6 font-bold">
+      <div className="flex items-center gap-x-4 orbitron text-[#FF4E78] text-7xl pt-64 pl-6 font-bold">
         <h3>AY in 50 characters</h3>
         <div className="">
           <motion.button
