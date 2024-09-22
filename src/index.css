@@ -10,4 +10,35 @@
   .desig {
     font-family: "Whisper", cursive;
   }
+
+  @keyframes glitch {
+    0% {
+      background-color: #000;
+      transform: translate(0);
+    }
+    20% {
+      background-color: #111;
+      transform: translate(-2px, 2px);
+    }
+    40% {
+      background-color: #222;
+      transform: translate(2px, -2px);
+    }
+    60% {
+      background-color: #000;
+      transform: translate(-3px, 3px);
+    }
+    80% {
+      background-color: #111;
+      transform: translate(3px, -3px);
+    }
+    100% {
+      background-color: #000;
+      transform: translate(0);
+    }
+  }
+
+  .glitch-bg {
+    animation: glitch 0.2s infinite;
+  }
 }
