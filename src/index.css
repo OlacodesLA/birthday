@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  body {
+    @apply bg-gray-950 overflow-x-hidden;
+  }
   .transform-style-3d {
     transform-style: preserve-3d;
   }
