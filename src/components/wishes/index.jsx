@@ -40,6 +40,11 @@ const wishes = [
     message: "AY is awesome, super fun, and always lightens the mood",
   },
   {
+    name: "Favour",
+    message:
+      "Strategic mastermind, captivating orator & versatile virtuoso, a solution-seeker with a hint of playful swagger.",
+  },
+  {
     name: "Timothy",
     message:
       "Happy Birthday, AY! Wishing you a fantastic day filled with joy & success!",
@@ -115,6 +120,10 @@ const wishes = [
   {
     name: "Job",
     message: "A Great role model A real man of Timber and Calibre",
+  },
+  {
+    name: "Precious",
+    message: "Visionary leader,Innovative and Enigma.",
   },
   {
     name: "Bassist",

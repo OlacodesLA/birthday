@@ -9,9 +9,9 @@ const AudioPlayer = ({ children }) => {
   // Effect to play audio after user interaction and when isPlaying is true
   useEffect(() => {
     if (hasInteracted && audioRef.current) {
-      audioRef.current.play().catch((error) => {
-        console.error("Error playing audio:", error);
-      });
+      // Set audio to start at 30 seconds
+      audioRef.current.currentTime = 28;
+
       if (isPlaying) {
         audioRef.current.play().catch((error) => {
           console.error("Error playing audio:", error);
@@ -56,7 +56,7 @@ const AudioPlayer = ({ children }) => {
         <motion.button
           whileHover={{ scale: 1.15, zIndex: 50 }}
           whileTap={{ scale: 0.95, zIndex: 50 }}
-          className="cursor-pointer px-4 py-4 fixed bottom-10 right-10 z-50  bg-[#CAFB12] text-white rounded-md"
+          className="cursor-pointer px-4 py-4 fixed bottom-10 right-10 z-50 bg-[#CAFB12] text-white rounded-md"
           onClick={handlePlayPause}
         >
           {isPlaying ? (
