@@ -58,7 +58,7 @@ function App() {
           )}
         </div>
       ) : (
-        <div className="text-lg text-center justify-center items-center flex md:hidden w-screen h-screen">
+        <div className="text-lg text-center text-white justify-center items-center flex md:hidden w-screen h-screen">
           This screen is only available on a Desktop
         </div>
       )}
